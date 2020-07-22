@@ -6,6 +6,10 @@ Vue.use(Router)
   //常用路由
 export const frequentlyRoutes = [
   {
+    path : '*',
+    redirect:()=>import('@/views/home/home')
+  },
+  {
     path : '/home',
     component:()=>import('@/views/home/home'), //路由直接引入和懒加载
     hidden: true

@@ -5,8 +5,12 @@ export function getHomeBannerdata(){
         url:'/home/multidata'
     })
 }
-export function getHomeRecommenddata(){
+export function getHomeRecommenddata(type,page,){
     return request({
-        url:'/home/data?type=pop&page=2'
+        url:'/home/data',
+        params:{
+            type,
+            page,
+        }
     })
 }

@@ -5,7 +5,10 @@ import App from './App'
 import router from './router'
 
 import Mint from 'mint-ui'
+import { Lazyload } from 'mint-ui';
+Vue.use(Lazyload);
 import 'mint-ui/lib/style.css';
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

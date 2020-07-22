@@ -32,6 +32,7 @@ html,body,#app{
     box-sizing: border-box;
     text-decoration: none;
     outline: none;
+    list-style: none;
 }
 
 </style>
