@@ -2,17 +2,19 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 Vue.use(Router)
+import home from '@/views/home/home'
 
   //常用路由
 export const frequentlyRoutes = [
   {
-    path : '*',
-    redirect:()=>import('@/views/home/home')
+    path : '',
+    redirect:'/home'
   },
   {
     path : '/home',
     component:()=>import('@/views/home/home'), //路由直接引入和懒加载
-    hidden: true
+    hidden: true,
+    meta:{keepAlive: true}
   },
   {
     path : '/profile',
@@ -27,6 +29,11 @@ export const frequentlyRoutes = [
   {
     path : '/cart',
     component:()=>import('@/views/cart/cart'),
+    hidden: true
+  },
+  {
+    path : '/detail/:id',
+    component:()=>import('@/views/detail/detail'),
     hidden: true
   },
 ]

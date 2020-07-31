@@ -1,12 +1,10 @@
 <template>
  <div>
      <router-view></router-view>
-     <footer-bar></footer-bar>
  </div>
 </template>
  
 <script>
-import footerBar from '@/components/common/footerBar.vue';
 export default {
     data(){
         return{
@@ -14,7 +12,6 @@ export default {
         }
     },
     components:{
-        footerBar,
     }
 }
 </script>

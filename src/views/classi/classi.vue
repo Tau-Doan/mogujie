@@ -1,6 +1,6 @@
 <template>
  <div>
-        <ul>
+        <ul class="content-wrap">
             <li>列表01</li>
             <li>列表02</li>
             <li>列表03</li>
@@ -111,8 +111,10 @@ import footerBar from '@/components/common/footerBar.vue'
 export default {
     data(){
         return{
-          
         }
+    },
+    mounted(){
+     
     },
     components:{
         footerBar,
@@ -120,6 +122,11 @@ export default {
 }
 </script>
  
-<style>
- 
+<style lang="less" scoped>
+.wrap{
+    height: 300px;
+    background-color: red;
+    overflow: hidden;
+
+}
 </style>

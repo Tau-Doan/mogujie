@@ -5,12 +5,13 @@
 </template>
  
 <script>
+
 import goodsCard from './goodsCard'
 export default {
     name:"goods",
     data(){
         return{
-          
+            
         }
     },
     props:{
@@ -29,12 +30,11 @@ export default {
  
 <style lang="less" scoped>
 .goods{
-    width: 100%;
     margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    
+    padding: 0 2px;
 }
 
 </style>
