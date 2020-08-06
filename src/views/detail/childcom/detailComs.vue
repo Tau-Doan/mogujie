@@ -20,17 +20,28 @@ export default {
           curIndex:0, 
         }
     },
+    props:{
+        py:{
+            type:String,
+            default(){
+                return ''
+            }
+        },
+    },
     components:{
         navBar,
     },
     methods:{
         backToHome(){
-            this.$router.back()
+            this.$router.replace('/home')
         },
+        //子传父
         getCurIndex(index){
+            // console.log('n',this.n);
             this.curIndex = index
-            console.log(index);
-        }
+            this.$emit('tabClick',index)
+            // console.log(this.py);
+        },
     }
 }
 </script>

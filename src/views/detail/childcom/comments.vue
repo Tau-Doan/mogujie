@@ -7,9 +7,9 @@
                 <!-- <span>{{rate.user.uname}}</span> -->
             </div>
            <div class="content">{{rate.content}}</div>
-            <span class="style">{{rate.style}}</span>
+            <span class="styles">{{rate.style}}</span>
+            <div class="comtpic"><img v-for="(v,i) in rate.images" :key="i" :src="v" alt=""></div>
         </div>
-           
  </div>
 </template>
  
@@ -47,11 +47,6 @@ export default {
         .personInfo{
             display: flex;
             align-items: center;
-            img{
-                 border-radius: 50%;
-                 width: 30px;
-                 height: 30px;
-                 }
             span{
                 margin-left: 10px;
             }
@@ -59,8 +54,15 @@ export default {
         .content{
             padding: 10px 0 5px;
         }
-        .style{
+        .styles{
             color: #999;
+        }
+        .comtpic{
+            padding: 4px 0;
+            img{   
+                width: 100px;
+                height: 100px;
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 <template>
  <div class="detailPic">
-     <div v-for="(item,index) in detailInfo" :key="index" >
+     <div v-for="(item,index) in detailInfo" :key="index">
          <img :src="item" alt="">
      </div>
  </div>
@@ -20,7 +20,13 @@ export default {
                 return []
             }
         }
-    }
+    },
+    //解决
+    // methods:{
+    //     picload(){
+    //         this.$bus.$emit('detailload')
+    //     }
+    // }
 }
 </script>
  

@@ -5,13 +5,12 @@
 </template>
  
 <script>
+import axios from 'axios'
 export default {
     data(){
         return{
           
         }
-    },
-    components:{
     }
 }
 </script>
@@ -21,7 +20,8 @@ export default {
 html,body,#app{
     width: 100%;
     height: 100%;
-    background-color: #f1f1f1;
+    // background-color: #f1f1f1;
+    background-color: #ffffff;
 }
 *{
     margin: 0;
@@ -30,6 +30,9 @@ html,body,#app{
     text-decoration: none;
     outline: none;
     list-style: none;
+}
+a{
+    color:#333;
 }
 
 </style>

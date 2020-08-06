@@ -1,132 +1,104 @@
 <template>
- <div>
-        <ul class="content-wrap">
-            <li>列表01</li>
-            <li>列表02</li>
-            <li>列表03</li>
-            <li>列表04</li>
-            <li>列表05</li>
-            <li>列表06</li>
-            <li>列表07</li>
-            <li>列表08</li>
-            <li>列表09</li>
-            <li>列表10</li>
-            <li>列表11</li>
-            <li>列表12</li>
-            <li>列表13</li>
-            <li>列表14</li>
-            <li>列表15</li>
-            <li>列表16</li>
-            <li>列表17</li>
-            <li>列表18</li>
-            <li>列表19</li>
-            <li>列表20</li>
-            <li>列表21</li>
-            <li>列表22</li>
-            <li>列表23</li>
-            <li>列表24</li>
-            <li>列表25</li>
-            <li>列表26</li>
-            <li>列表27</li>
-            <li>列表28</li>
-            <li>列表29</li>
-            <li>列表30</li>
-            <li>列表31</li>
-            <li>列表32</li>
-            <li>列表33</li>
-            <li>列表34</li>
-            <li>列表35</li>
-            <li>列表36</li>
-            <li>列表37</li>
-            <li>列表38</li>
-            <li>列表39</li>
-            <li>列表40</li>
-            <li>列表41</li>
-            <li>列表42</li>
-            <li>列表43</li>
-            <li>列表44</li>
-            <li>列表45</li>
-            <li>列表46</li>
-            <li>列表47</li>
-            <li>列表48</li>
-            <li>列表49</li>
-            <li>列表50</li>
-            <li>列表51</li>
-            <li>列表52</li>
-            <li>列表53</li>
-            <li>列表54</li>
-            <li>列表55</li>
-            <li>列表56</li>
-            <li>列表57</li>
-            <li>列表58</li>
-            <li>列表59</li>
-            <li>列表60</li>
-            <li>列表61</li>
-            <li>列表62</li>
-            <li>列表63</li>
-            <li>列表64</li>
-            <li>列表65</li>
-            <li>列表66</li>
-            <li>列表67</li>
-            <li>列表68</li>
-            <li>列表69</li>
-            <li>列表70</li>
-            <li>列表71</li>
-            <li>列表72</li>
-            <li>列表73</li>
-            <li>列表74</li>
-            <li>列表75</li>
-            <li>列表76</li>
-            <li>列表77</li>
-            <li>列表78</li>
-            <li>列表79</li>
-            <li>列表80</li>
-            <li>列表81</li>
-            <li>列表82</li>
-            <li>列表83</li>
-            <li>列表84</li>
-            <li>列表85</li>
-            <li>列表86</li>
-            <li>列表87</li>
-            <li>列表88</li>
-            <li>列表89</li>
-            <li>列表90</li>
-            <li>列表91</li>
-            <li>列表92</li>
-            <li>列表93</li>
-            <li>列表94</li>
-            <li>列表95</li>
-            <li>列表96</li>
-            <li>列表97</li>
-            <li>列表98</li>
-            <li>列表99</li>
-            <li>列表100</li>
-        </ul>
-      <footer-bar></footer-bar>
+ <div id="classiWrap">
+      <nav-bar class="search-bar">
+          <div slot="left" class="left">
+              <img src="@/assets/img/classi/chat.png" alt="">
+          </div>
+          <div slot="center">
+              <input type="text" placeholder="睡衣">
+          </div>
+          <div slot="right" class="right">
+               <img src="@/assets/img/classi/cart.png" alt="">
+          </div>
+       </nav-bar> 
+   
+        <div></div>
+    <left-side :category="category" />
+    <footer-bar></footer-bar>
  </div>
 </template>
  
 <script>
+import leftSide from './leftside/leftSide'
 import footerBar from '@/components/common/footerBar.vue'
+import navBar from '@/components/common/navBar.vue'
+
+import { getCategory } from '@/api/classi/classi'
 export default {
     data(){
         return{
+         category:[]
         }
     },
-    mounted(){
-     
+    methods:{
+
+    },
+     created(){
+        this.getCategory()
+        // this.getSubategory()
+    },
+    methods:{
+        //请求分类标题数据
+      async getCategory(){
+           var res = await getCategory()
+           console.log(res.data.data.category.list);
+           this.category = res.data.data.category.list
+        },
+        //请求分类标题数据
+    //   async getSubategory(){
+    //        var res = await getSubategory()
+    //        console.log(res.data.data.list);
+           
+    //     }
     },
     components:{
         footerBar,
+        navBar,
+        leftSide,
     }
 }
 </script>
  
 <style lang="less" scoped>
-.wrap{
-    height: 300px;
-    background-color: red;
-    overflow: hidden;
-
+#classiWrap{
+    padding-top: 44px;
+    .search-bar{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 999;
+        background: #ffffff;
+        border-bottom: 1px solid #e5e5e5;
+        input{
+            width: 100%;
+            border: none;
+            border-radius: 3px;
+            background: #eee;
+            height: 26px;
+            color: #999;
+            padding-left: 10px;
+        }
+        .left{
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 20px;
+                height: 20px;
+            }
+        }
+        .right{
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 24px;
+                height: 24px;
+            }
+        }  
+    }
 }
+
 </style>

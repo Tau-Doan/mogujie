@@ -12,7 +12,8 @@ export default {
     name:"Scroll",
     data(){
         return{
-          scroll:null
+          scroll:null,
+          position:null
         }
     },
     mounted(){
@@ -25,16 +26,20 @@ export default {
         })
         //监听滚动位置
         this.scroll.on('scroll',(position)=>{
-            // console.log(position);
-
+            this.$emit('scroll',position)
         })
     },
-    //封装一个回到顶部方法 参数:(横坐标，纵坐标，滚动时长)
+    //封装回到顶部方法 参数:(横坐标，纵坐标，滚动时长)
     methods:{
         scrollTo(x,y,time=300){
-            this.scroll.scrollTo(x,y,time)
+            this.scroll && this.scroll.scrollTo(x,y,time)
+        },
+    //封装图片加载函数
+        refresh(){
+          this.scroll && this.scroll.refresh()
         }
-    }
+    },
+
 }
 </script>
  

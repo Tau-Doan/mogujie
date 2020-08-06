@@ -13,6 +13,17 @@ export class goodsInfo{
      }
 }
 
+export class cartInfo{
+     //将请求数据重组为一类##### 分类
+     constructor(itemInfo,detailInfo){
+          this.title = itemInfo.title
+          this.img = itemInfo.topImages[0]
+          this.lowPrice = itemInfo.lowPrice
+          this.id = itemInfo.shopId
+          this.desc = detailInfo.desc
+     }
+}
+
 export class shopsInfo{
      //将请求数据重组为一类##### 分类
      constructor(shopInfo){

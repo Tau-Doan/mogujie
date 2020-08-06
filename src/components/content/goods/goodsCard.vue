@@ -1,14 +1,14 @@
 <template>
  <div class="goodscard" @click="toDetail">
      <div class="good-card-wrap">
-           <a href="#"><img v-lazy="goodsCard.show.img" class="show-pic" :src="goodsCard.show.img" alt=""></a>
+           <a href="#"><img class="show-pic" @load="imgLoad" v-lazy="showImg" :src="showImg" alt=""></a>
            <div class="card-info">
                 <p class="good-card-wrap-title">{{goodsCard.title}}</p>
                 <div class="price-celct">
                     <span class="price">￥{{goodsCard.price}}</span>
                      <span class="clect">{{goodsCard.cfav}}</span>
                 </div>
-             </div>
+            </div>
      </div>
  </div>
 </template>
@@ -37,6 +37,16 @@ export default {
             var id = this.goodsCard.iid
             this.$router.push('/detail/' + id)
          },
+         //监听图片加载
+         imgLoad(){
+             this.$bus.$emit('imageLoad')
+         }
+    },
+    computed:{
+        showImg(){
+            //第一个为假，返回第二个；第一个为真，直接返回
+            return this.goodsCard.image || this.goodsCard.show.img
+        }
     }
 }
 </script>

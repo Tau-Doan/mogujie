@@ -39,7 +39,7 @@ export default {
           recommend:[],
           curType:'pop',
           scroll:null,
-          flag:false,
+          flag:true,
           //数据模型
           goods:{
               'pop':{ page:0,list:[] },
@@ -69,6 +69,13 @@ export default {
         this.getHomeRecommenddata('pop')
         this.getHomeRecommenddata('new')
         this.getHomeRecommenddata('sell')
+        //监听图片加载完成
+        // this.$bus.$on('imageLoad',()=>{
+        //     this.$refs.scrollCom.refresh()
+        // })
+    },
+    mounted(){
+
     },
     methods:{
         //事件监听方法
@@ -93,7 +100,7 @@ export default {
             const page = this.goods[type].page + 1
             getHomeRecommenddata(type,page).then(res=>{
              var goodlist = res.data.data.list
-             console.log(goodlist)
+            //  console.log(goodlist)
              this.goods[type].list.push(...goodlist)
              this.goods[type].page += 1
             })
